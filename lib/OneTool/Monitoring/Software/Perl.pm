@@ -1,10 +1,10 @@
+package OneTool::Monitoring::Software::Perl;
+
 =head1 NAME
 
 OneTool::Monitoring::Software::Perl - OneTool Monitoring for Perl Software module
 
 =cut
-
-package OneTool::Monitoring::Software::Perl;
 
 use strict;
 use warnings;
@@ -16,7 +16,7 @@ my %check = (
     },
 );
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Checks_Available
 

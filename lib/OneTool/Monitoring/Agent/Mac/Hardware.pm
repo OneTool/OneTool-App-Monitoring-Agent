@@ -1,3 +1,5 @@
+package OneTool::Monitoring::Agent::Mac::Hardware;
+
 =head1 NAME
 
 OneTool::Monitoring::Agent::Mac::Hardware
@@ -8,15 +10,13 @@ OneTool Mac Hardware Monitoring Agent module
 
 =cut
 
-package OneTool::Monitoring::Agent::Mac::Hardware;
-
 use strict;
 use warnings;
 
 my $BIN_SYS_PROFILER = '/usr/sbin/system_profiler';
 my $BIN_SYSCTL       = '/usr/sbin/sysctl';
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 CPU_Info()
 

@@ -1,10 +1,10 @@
+package OneTool::Monitoring::Agent;
+
 =head1 NAME
 
 OneTool::Monitoring::Agent - OneTool Monitoring Agent module
 
 =cut
-
-package OneTool::Monitoring::Agent;
 
 use strict;
 use warnings;

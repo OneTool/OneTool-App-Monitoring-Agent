@@ -1,9 +1,10 @@
+package OneTool::Monitoring::Agent::API;
+
 =head1 NAME
 
 OneTool::Monitoring::Agent::API - OneTool Monitoring Agent API module
 
 =cut
-package OneTool::Monitoring::Agent::API;
 
 use strict;
 use warnings;
@@ -13,6 +14,7 @@ use FindBin;
 use JSON;
 
 use lib "$FindBin::Bin/../lib/";
+
 use OneTool::Monitoring::Agent;
 
 our @EXPORT_OK = qw(%agent_api);

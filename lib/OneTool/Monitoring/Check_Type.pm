@@ -1,17 +1,15 @@
+package OneTool::Monitoring::Check_Type;
+
 =head1 NAME
 
 OneTool::Monitoring::Check_Type - OneTool Monitoring Type Check module
 
 =cut
 
-package OneTool::Monitoring::Check_Type;
-
 use strict;
 use warnings;
 
-use Readonly;
-
-Readonly my %pretty => (
+my %pretty = (
 	byte => [
 		{ limit => 1024**4, string => 'TBytes' },
 		{ limit => 1024**3, string => 'GBytes' },

@@ -1,10 +1,10 @@
+package OneTool::Monitoring::Check;
+
 =head1 NAME
 
 OneTool::Monitoring::Check - OneTool Monitoring Check module
 
 =cut
-
-package OneTool::Monitoring::Check;
 
 use strict;
 use warnings;
@@ -28,7 +28,7 @@ has 'interval' => (
 	required => 1,
     );
 	
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Category()
 

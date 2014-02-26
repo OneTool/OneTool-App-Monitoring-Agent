@@ -1,17 +1,37 @@
-package OneTool::Monitoring::Agent::Linux::System;
+package OneTool::Monitoring::Agent::Windows::System;
 
 =head1 NAME
 
-OneTool::Monitoring::Agent::Linux::System - OneTool Linux System Monitoring Agent module
+OneTool::Monitoring::Agent::Windows::System - OneTool Windows System Monitoring Agent module
 
 =cut
 
 use strict;
 use warnings;
 
-use Proc::ProcessTable;
+use OneTool::Monitoring::Agent::Windows::Registry;
+use OneTool::Monitoring::Agent::Windows::WMI;
 
 =head1 FUNCTIONS
+
+=head2 Disk_Usage
+
+=cut
+
+sub Disk_Usage
+{
+	my %data = ();
+	
+	my @disks = OneTool::Monitoring::Agent::Windows::WMI::Query('DISK');
+	foreach my $d (@disks)
+	{
+		$data{$d->{DeviceID}} = $d->{FreeSpace};
+	}
+	return ({ status => 'ok', data => \%data });
+	
+	#return ({ status => 'error', 
+	#	data => "Unable to get DiskUsage" });
+}
 
 =head2 Domainname()
 
@@ -19,16 +39,15 @@ use Proc::ProcessTable;
 
 sub Domainname
 {
-    my $result = OneTool::Monitoring::Agent::Linux::Search_In_File(
-        '/proc/sys/kernel/domainname');
+	while (my @row = OneTool::Monitoring::Agent::Windows::WMI::Query('COMPUTER'))
+	{
+		my $c = $row[0];
+		
+		return ({ status => 'ok', data => { Domainname => $c->{Domain} } });
+	}
 
-	if ($result->{status} eq 'ok')
-    {
-        return ({ status => $result->{status}, 
-            data => { Domainname => $result->{data} } });
-    }
-
-    return ($result);
+    return ({ status => 'error', 
+		data => "Unable to get Domainname" });
 }
 
 =head2 Hostname()
@@ -37,21 +56,39 @@ sub Domainname
 
 sub Hostname
 {
-    my $result = OneTool::Monitoring::Agent::Linux::Search_In_File(
-        '/proc/sys/kernel/hostname');
-
-	if ($result->{status} eq 'ok')
+	while (my @row = OneTool::Monitoring::Agent::Windows::WMI::Query('COMPUTER'))
 	{
-    	return ({ status => $result->{status}, 
-			data => { Hostname => $result->{data} } });
+		my $c = $row[0];
+		
+		return ({ status => 'ok', data => { Hostname => $c->{Name} } });
 	}
 
-	return ($result);
+    return ({ status => 'error', 
+		data => "Unable to get Domainname" });
+}
+
+=head2 Software_Installed_List()
+
+=cut
+
+sub Software_Installed_List
+{
+	my @list = ();
+	my $keys = OneTool::Monitoring::Agent::Windows::Registry::Data('Installed_Software');
+	foreach my $k (keys %$keys)
+	{
+		if (($k ne 'k\\') && (defined $keys->{$k}{DisplayName}))
+		{
+			push @list, sprintf "\"%s (%s)\"", $keys->{$k}{DisplayName},  $keys->{$k}{DisplayVersion};
+		}
+	}
+	 
+	return ({ status => 'ok', data => { List => join(',', @list) } });
 }
 
 =head2 Load()
 
-=cut
+
 
 sub Load
 {
@@ -76,7 +113,7 @@ sub Load
 
 =head2 Memory()
 
-=cut
+
 
 sub Memory
 {
@@ -102,7 +139,7 @@ sub Memory
 
 =head2 OS_Release()
 
-=cut
+
 
 sub OS_Release
 {
@@ -120,7 +157,7 @@ sub OS_Release
 
 =head2 Process_Info($pid)
 
-=cut
+
 
 sub Process_Info
 {
@@ -158,7 +195,7 @@ sub Process_Info
 
 =head2 Processes_States()
 
-=cut
+
 
 sub Processes_States
 {
@@ -176,7 +213,7 @@ sub Processes_States
 
 =head2 Swap()
 
-=cut
+
 
 sub Swap
 {
@@ -198,6 +235,7 @@ sub Swap
 	return ({ status => 'error',
             data => "Unable to open file '$file_meminfo'" });
 }
+=cut
 
 1;
 

@@ -1,15 +1,15 @@
+package OneTool::Monitoring::Agent::Linux::Hardware;
+
 =head1 NAME
 
 OneTool::Monitoring::Agent::Linux::Hardware - OneTool Linux Hardware Monitoring Agent module
 
 =cut
 
-package OneTool::Monitoring::Agent::Linux::Hardware;
-
 use strict;
 use warnings;
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 CPU_Info()
 

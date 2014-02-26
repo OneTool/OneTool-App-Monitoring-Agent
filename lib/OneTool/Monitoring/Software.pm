@@ -1,10 +1,10 @@
+package OneTool::Monitoring::Software;
+
 =head1 NAME
 
 OneTool::Monitoring::Software - OneTool Monitoring Software module
 
 =cut
-
-package OneTool::Monitoring::Software;
 
 use strict;
 use warnings;
@@ -14,7 +14,7 @@ use FindBin;
 my $DIR_SOFTWARE = "$FindBin::Bin/../lib/OneTool/Monitoring/Software/";
 my $MOD_SOFTWARE = 'OneTool::Monitoring::Software::';
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Check($key)
 

@@ -1,3 +1,5 @@
+package OneTool::Monitoring::Agent::App;
+
 =head1 NAME
 
 OneTool::Monitoring::Agent::App - Module handling everything for onetool_monitoring_agent.pl
@@ -57,8 +59,6 @@ Prints version
 =back
 
 =cut
-
-package OneTool::Monitoring::Agent::App;
 
 use strict;
 use warnings;
