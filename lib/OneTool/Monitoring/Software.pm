@@ -9,6 +9,8 @@ package OneTool::Monitoring::Software;
 use strict;
 use warnings;
 
+use FindBin;
+
 my $DIR_SOFTWARE = "$FindBin::Bin/../lib/OneTool/Monitoring/Software/";
 my $MOD_SOFTWARE = 'OneTool::Monitoring::Software::';
 
