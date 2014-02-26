@@ -19,16 +19,21 @@ use OneTool::Monitoring::Agent::Linux::System;
 my %check = (
 	'Hardware.CPU.Information' => {
         fct  => \&OneTool::Monitoring::Agent::Linux::Hardware::CPU_Info,
-        args => []
+        args => [],
+		type => 'string'
     },
 	'System.Domainname' => {
         fct  => \&OneTool::Monitoring::Agent::Linux::System::Domainname,
-        args => []
+        args => [],
+        type => 'string'
     },
     'System.Hostname' => {
         fct  => \&OneTool::Monitoring::Agent::Linux::System::Hostname,
-        args => []
+        args => [],
+        type => 'string'
     },
+	);
+=head2 comment
 	'System.Load' => {
         fct  => \&OneTool::Monitoring::Agent::Linux::System::Load,
         args => []
@@ -54,6 +59,7 @@ my %check = (
         args => []
     },
 	);
+=cut
 
 =head1 FUNCTIONS
 
@@ -89,7 +95,14 @@ Returns list of available Checks
 
 sub Checks_Available
 {
-    return (sort keys %check);
+	my @list = ();
+	
+	foreach my $k (sort keys %check)
+	{
+		push @list, { name => $k, type => $check{$k}{type} };
+	}
+
+    return (@list);
 }
 
 =head2 Search_In_File($file, $regexp)
