@@ -172,7 +172,7 @@ sub Checks_Available
         push @list, OneTool::Monitoring::Agent::Windows::Checks_Available();
     }
 
-    return (sort @list);
+    return (sort { $a->{name} cmp $b->{name} }@list);
 }
 
 =head2 Checks_List()
