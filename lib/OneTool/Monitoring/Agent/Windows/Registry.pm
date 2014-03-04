@@ -22,7 +22,7 @@ my %DATA_KEY = (
 # HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
 # HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Data
 

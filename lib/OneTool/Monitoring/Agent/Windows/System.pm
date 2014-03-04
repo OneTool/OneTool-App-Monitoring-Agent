@@ -12,7 +12,7 @@ use warnings;
 use OneTool::Monitoring::Agent::Windows::Registry;
 use OneTool::Monitoring::Agent::Windows::WMI;
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Disk_Usage
 

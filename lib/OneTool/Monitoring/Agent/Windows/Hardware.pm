@@ -11,9 +11,11 @@ use warnings;
 
 use OneTool::Monitoring::Agent::Windows::WMI;
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 CPU_Info()
+
+Gets CPU Information (Name, Description)
 
 =cut
 
@@ -33,6 +35,8 @@ sub CPU_Info
 
 
 =head2 Printer_Default()
+
+Gets default Printer
 
 =cut
 

@@ -23,7 +23,11 @@ my %QUERY =
 	
 my $dbh = DBI->connect('dbi:WMI:');
 
+=head1 SUBROUTINES/METHODS
+
 =head2 Query($query)
+
+Launches the WMI query '$query'
 
 =cut
 

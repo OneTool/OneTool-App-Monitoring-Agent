@@ -40,8 +40,6 @@ our %agent_api = (
         method => 'GET',
         action => sub {
             my ($self) = @_;
-            #my @checks = @{$self->{checks}}; #Checks_List();
-            
             return (to_json([$self->Checks_List()])); 
             } 
         },

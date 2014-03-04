@@ -44,7 +44,7 @@ my %check = (
     #},
 		);
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Check($name, $args)
 

@@ -11,7 +11,7 @@ use warnings;
 
 use Proc::ProcessTable;
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Domainname()
 

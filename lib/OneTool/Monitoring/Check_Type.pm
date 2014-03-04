@@ -18,7 +18,7 @@ my %pretty = (
 		]
 	);
 		
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 Prettify
 
