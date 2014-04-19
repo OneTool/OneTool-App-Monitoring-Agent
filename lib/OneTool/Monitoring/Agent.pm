@@ -132,7 +132,7 @@ sub Check
                 $^O eq 'linux' ? OneTool::Monitoring::Agent::Linux::Check($key)
                 : (
                     $^O eq 'darwin'
-                    ? OneTool::Monitoring::Agent::Mac::Check($key)
+                    ? OneTool::Monitoring::Agent::Mac::Check($key, $check{$key}{type})
                     : OneTool::Monitoring::Agent::Windows::Check($key)
                   )
               )

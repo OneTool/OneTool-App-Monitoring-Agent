@@ -14,10 +14,10 @@ use FindBin;
 use lib "$FindBin::Bin/../lib/";
 
 use OneTool::Monitoring::Agent::Mac::Hardware;
-#use OneTool::Monitoring::Agent::Mac::System;
+use OneTool::Monitoring::Agent::Mac::System;
 
 my %check = (
-	'Hardware.CPU.Information' => {
+    'Hardware.CPU.Information' => {
         fct  => \&OneTool::Monitoring::Agent::Mac::Hardware::CPU_Info,
         args => [],
         type => 'string'
@@ -32,11 +32,11 @@ my %check = (
     #    args => [],
 	#type => 'string'
     #},
-	#'System.Load' => {
-    #    fct  => \&OneTool::Monitoring::Agent::Linux::System::Load,
-    #    args => [],
-	#type => 'load'
-    #},
+    'System.Load' => {
+        fct  => \&OneTool::Monitoring::Agent::Mac::System::Load,
+        args => [],
+        type => 'load'
+    },
 	#'System.Memory' => {
     #    fct  => \&OneTool::Monitoring::Agent::Linux::System::Memory,
     #    args => [],

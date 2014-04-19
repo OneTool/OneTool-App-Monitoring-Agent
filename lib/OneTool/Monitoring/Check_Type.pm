@@ -29,8 +29,8 @@ Returns 'prettified' value
 sub Prettify
 {
 	my ($type, $value) = @_;
-		
-	if ($pretty{$type})
+	printf "type: $type\n";
+	if (defined $pretty{$type})
 	{
 		foreach my $p (@{$pretty{$type}})
 		{

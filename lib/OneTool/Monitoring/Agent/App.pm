@@ -164,8 +164,8 @@ sub Get
     {
         foreach my $key (keys %{$result->{data}})
         {
-            printf "%s:%s => %s\n", $check, $key, 
-                OneTool::Monitoring::Check_Type::Prettify('byte', $result->{data}->{$key});
+            printf "%s:%s => %s\n", $check, $key, $result->{data}->{$key};
+                #OneTool::Monitoring::Check_Type::Prettify('byte', $result->{data}->{$key});
         }
     }
     else
